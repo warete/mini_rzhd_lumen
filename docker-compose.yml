@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "7005:8080"
+    volumes:
+      - .:/app
+    command: bash backend_start.sh
