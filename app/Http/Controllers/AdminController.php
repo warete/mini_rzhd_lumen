@@ -47,8 +47,10 @@ class AdminController extends Controller
         $route->trains()->attach($request->get('trains'));
         if ($route->save())
         {
+            $trains = Train::all();
             return view('admin.route.new', [
                 'route' => $route,
+                'hasErrors' => false,
             ]);
         }
         else
